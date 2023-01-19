@@ -118,7 +118,9 @@ Se crearon 3 triggers para la tabla vendedor con el fin de almacenar en una tabl
 Listado de triggers Vendedor:
 
 -tr_insert_vendedor
+
 -tr_update_vendedor
+
 -tr_delete_vendedor
 
 **2. Triggers en tabla usuarios** 
@@ -128,7 +130,9 @@ Se crearon 3 triggers para la tabla usuarios la cual almacena en una tabla denom
 Listado de triggers usuarios:
 
 -tr_insert_usuarios
+
 -tr_update_usuarios
+
 -tr_delete_usuarios
 
 
