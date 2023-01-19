@@ -101,13 +101,14 @@ Tablas que relacionan:
 
 1.Vendedor
 
+**2. Nombre:sp_usuario_nuevo** 
 
+Crea un procedimiento almacenado para ingresar datos de usuarios nuevos en la tabla de usuarios según los valores de entrada.
 
+Tablas que relacionan:
 
-  
- **📫Contacto**   
--  Linkedin: www.linkedin.com/in/amorald
--  Correo : malejamo103@gmail.com
+1.Usuarios
+
 
 <!---
 Alejandramo1/Alejandramo1 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
