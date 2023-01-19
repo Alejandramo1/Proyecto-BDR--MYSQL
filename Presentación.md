@@ -1,6 +1,6 @@
 # Segunda entrega Proyecto SQL para plataforma P2P
 
-👋 **Hola, en el presente documento se describe el objetivo de cada una de las vistas, funciones, Stored Procedures creados para la interacción de la base de datos de una empresa dedicada al comercio electrónico a domicilio bajo el modelo P2P que conecta comercios y establecimientos con usuarios acercándole los productos que ellos desean sin la necesidad de dirigirse directamente, solo por medio de la aplicación o página web.**
+👋 **Hola, en el presente documento se describe el objetivo de cada una de las vistas, funciones, Stored Procedures y triggers creados para la interacción de la base de datos de una empresa dedicada al comercio electrónico a domicilio bajo el modelo P2P que conecta comercios y establecimientos con usuarios acercándole los productos que ellos desean sin la necesidad de dirigirse directamente, solo por medio de la aplicación o página web.**
 
 **👀VISTAS:**
 
