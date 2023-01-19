@@ -5,14 +5,39 @@
 **👀VISTAS:**
 
 **1. Creacion vista de top de productos más vendidos
-  Nombre:vw_productos_vendidos** 
+  Nombre:Vw_productos_vendidos** 
 
 El objetivo de esta vista es organizar de mayor a menor las unidades según los ingresos totales generados por la venta del producto ofrecido en la plataforma.
 
 Tablas que relacionan:
 
 1.detalle_orden
+
 2.Productos
+
+**2. Creacion vista top de rappitenderos con mayores ordenes 
+  Nombre:Vw_top_rappitenderos** 
+
+Esta vista genera el top de los rappitenderos con mayores ordenes otorgadas, a traves de un Join.
+
+Tablas que relacionan:
+
+1.rappitenderos
+
+2.orden
+
+**3. Metodos de pago más usados
+  Nombre:Vw_top_metodo_pago** 
+
+Esta vista ordena de mayor a menor los metodos de pago con mayor uso en la plataforma a través de la unión de la tabla de pagos y orden ordenada por el número de veces usado.
+
+Tablas que relacionan:
+
+1.pagos
+
+2.orden
+
+
 
 
 
