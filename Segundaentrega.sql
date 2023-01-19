@@ -322,7 +322,14 @@ END
 
 $$ ;
 
+-- Prueba para los Stored procedures
+
+-- Prueba Primer SP
+
+CALL sp_vendedores('Nombre','Desc');
+
 -- Segundo Stored Procedures
+
 -- El siguiente SP inserta datos de usuarios nuevos en la tabla de usuarios.
 
 DELIMITER $$
@@ -367,10 +374,6 @@ END
 $$;
 
 -- Prueba para los Stored procedures
-
--- Prueba Primer SP
-
-CALL sp_vendedores('Nombre','Desc');
 
 -- Ingresar datos de nuevo usuario
 CALL sp_usuario_nuevo(
