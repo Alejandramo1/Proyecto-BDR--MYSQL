@@ -518,7 +518,8 @@ CALL sp_usuario_nuevo(
     $$ ;
     
       -- Prueba para insertar un registro
-	SET SQL_SAFE_UPDATES = 1;
+	
+	SET FOREIGN_KEY_CHECKS=0; -- Funcion para no chequear llaves foraneas
     
     DELETE FROM vendedor
 	WHERE id_vendedor= 2;
@@ -530,6 +531,7 @@ CALL sp_usuario_nuevo(
 -- PRIMER TRIGGER BEFORE
 -- Integrar trigger para registrar las modificaciones de los registros en la tabla de usuarios existentes.
     -- Primero crear la tabla para guardar log
+    
     CREATE TABLE Bitacora_Usuario_log (
 		id_bitacora INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
         id_usuario INT NOT NULL,
@@ -546,15 +548,16 @@ CALL sp_usuario_nuevo(
         Hora TIME
     );
 	
-    
     DROP TRIGGER IF EXISTS tr_update_usuarios;
-	-- Crear el trigger que registre los datos de modificación del registro en la tabla de usuarios
+    
+-- Crear el trigger que registre los datos de modificación del registro en la tabla de usuarios
+
     DELIMITER $$
     CREATE TRIGGER tr_update_usuarios
 	BEFORE UPDATE ON usuarios
     FOR EACH ROW
     BEGIN
-			INSERT INTO Bitacora_Usuario_log (
+	INSERT INTO Bitacora_Usuario_log (
             id_usuario,
             tipo_movimiento,
 			nombre_usuario,
@@ -595,6 +598,7 @@ CALL sp_usuario_nuevo(
 -- TABLA USUARIOS
 -- SEGUNDO TRIGGER INSERT AFTER
 -- Este trigger inserta un registro nuevo en la tabla usuarios
+
 	DROP TRIGGER IF EXISTS tr_insert_usuarios;
     
     DELIMITER $$
@@ -602,7 +606,7 @@ CALL sp_usuario_nuevo(
 	AFTER INSERT ON usuarios
     FOR EACH ROW
     BEGIN
-			INSERT INTO Bitacora_Usuario_log (
+	INSERT INTO Bitacora_Usuario_log (
             id_usuario,
             tipo_movimiento,
 			nombre_usuario,
@@ -635,6 +639,7 @@ CALL sp_usuario_nuevo(
     
     -- Prueba para insertar un registro en la tabla usuarios usando el SP ctrado anteriormente
     -- Ingresar datos de nuevo usuario
+    
 	CALL sp_usuario_nuevo(
             'Nelson'
             , 'Morales Mendoza'
@@ -644,10 +649,12 @@ CALL sp_usuario_nuevo(
 			, 'Masculino'
             , '3124537829'
         );
+	
     -- Revisar datos
+    
     SELECT * FROM Bitacora_Usuario_log;
     
-    -- TABLA USUARIOS
+-- TABLA USUARIOS
 -- TERCER TRIGGER DELETE AFTER
 -- Este trigger inserta un registro de cada eliminación nueva en la tabla usuarios
 	
@@ -690,7 +697,8 @@ CALL sp_usuario_nuevo(
     $$ ;
     
     -- Prueba para eliminar un registro
-	SET SQL_SAFE_UPDATES = 0;
+    
+	SET FOREIGN_KEY_CHECKS=0; -- Funcion para no chequear llaves foraneas
     
     DELETE FROM usuarios
 	WHERE id_usuario= 20;
