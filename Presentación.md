@@ -11,7 +11,7 @@ El objetivo de esta vista es organizar de mayor a menor las unidades según los 
 
 Tablas que relacionan:
 
-1.detalle_orden
+1.Detalle_orden
 
 2.Productos
 
@@ -22,30 +22,88 @@ Esta vista genera el top de los rappitenderos con mayores ordenes otorgadas, a t
 
 Tablas que relacionan:
 
-1.rappitenderos
+1.Rappitenderos
 
-2.orden
+2.Orden
 
 **3. Metodos de pago más usados
-  Nombre:Vw_top_metodo_pago** 
+Nombre:Vw_top_metodo_pago** 
 
-Esta vista ordena de mayor a menor los metodos de pago con mayor uso en la plataforma a través de la unión de la tabla de pagos y orden ordenada por el número de veces usado.
+Esta vista ordena de mayor a menor los metodos de pago con mayor uso en la plataforma a través de la unión de la tabla de pagos y orden según el número de veces usado de forma descendiente.
 
 Tablas que relacionan:
 
-1.pagos
+1.Pagos
 
-2.orden
+2.Orden
+
+**4. Top de vendedores con mayor número de ordenes
+Nombre:Vw_top_vendedores** 
+
+Esta vista genera un listado de los vendedores con mayor número de ordenes en la plataforma a través de la unión de la tabla de vendedor y orden.
+
+Tablas que relacionan:
+
+1.Vendedor
+
+2.Orden
+
+**5. Top de Usuarios con más numero de ordenes en rappi
+Nombre:Vw_top_usuarios** 
+
+Esta vista genera un listado de los usuarios ordenados de mayor a menor según el numero de ordenes realizadas en la plataforma a través de la unión de la tabla de usuarios y orden.
+
+Tablas que relacionan:
+
+1.Usuarios
+
+2.Orden
+
+
+**👀FUNCIONES:**
+
+**1. Nombre:fnnum_compras** 
+
+Esta función calcula el numero de compras que ha realizado un usuario ingresando el id.
+
+Tablas que relacionan:
+
+1.Usuarios
+
+2.Orden
+
+**2. Nombre:fncat_prod_vendidos** 
+
+Esta función ingresando el id del producto regresa la categoría a la cual pertenece dicho producto.
+
+Tabla que relaciona:
+
+1.Productos
+
+**3. Nombre:fnund_vendidas_cat** 
+
+Esta función ingresando la categoría a evaluar devuelve el numero de productos vendidos que pertenecen a dicha categoría.
+
+Tablas que relacionan:
+
+1.Productos
+
+2.Detalle orden
+
+
+**👀STORED PROCEDURES:**
+
+**1. Nombre:sp_vendedores** 
+
+Crea un procedimiento almacenado para consultar todas las filas de la tabla de vendedores según un campo de ordenación ingresado ya sea de manera ascendente o descendente.
+
+Tablas que relacionan:
+
+1.Vendedor
 
 
 
 
-
-
- 
-**👀Herramientas BI:**
-- Power BI
-- Looker Studio
   
  **📫Contacto**   
 -  Linkedin: www.linkedin.com/in/amorald
