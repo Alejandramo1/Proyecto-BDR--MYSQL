@@ -103,7 +103,7 @@ Tablas que relacionan:
 
 **2. Nombre:sp_usuario_nuevo** 
 
-Crea un procedimiento almacenado para ingresar datos de usuarios nuevos en la tabla de usuarios según los valores de entrada.
+Crea un procedimiento almacenado para ingresar datos de usuarios nuevos en la tabla de usuarios según los valores de entrada. Lo que permite agilizar la inserción de nuevos datos a la tabla.
 
 Tablas que relacionan:
 
