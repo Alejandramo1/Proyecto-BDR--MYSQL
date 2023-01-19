@@ -1,4 +1,4 @@
-# Proyecto-SQL-plataforma-P2P-
+# Segunda entrega Proyecto SQL para plataforma P2P
 
 HOLA ESTE ES MI PROYECTO
 👋 **Hola, Soy Alejandra Morales Daza**
