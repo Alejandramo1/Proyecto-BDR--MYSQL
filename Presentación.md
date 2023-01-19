@@ -4,7 +4,7 @@
 
 **👀VISTAS:**
 
-**Creacion vista de top de productos más vendidos
+**1. Creacion vista de top de productos más vendidos
   Nombre:vw_productos_vendidos** 
 
 El objetivo de esta vista es organizar de mayor a menor las unidades según las unidades vendidas cada uno de los productos ofrecidos en la plataforma.
