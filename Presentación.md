@@ -109,6 +109,28 @@ Tablas que relacionan:
 
 1.Usuarios
 
+**👀TRIGGERS:**
+
+**1. Triggers en tabla vendedor** 
+
+Se crearon 3 triggers para la tabla vendedor con el fin de almacenar en una tabla denominada Bitacora_vendedor_log el tipo de movimiento realizado, el usuario, fecha y hora en la cual se registro la novedad.
+
+Listado de triggers Vendedor:
+
+-tr_insert_vendedor
+-tr_update_vendedor
+-tr_delete_vendedor
+
+**2. Triggers en tabla usuarios** 
+
+Se crearon 3 triggers para la tabla usuarios la cual almacena en una tabla denominada Bitacora_Usuario_log el tipo de movimiento realizado, el usuario, fecha y hora en la cual se registro la novedad.
+
+Listado de triggers usuarios:
+
+-tr_insert_usuarios
+-tr_update_usuarios
+-tr_delete_usuarios
+
 
 <!---
 Alejandramo1/Alejandramo1 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
