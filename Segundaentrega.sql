@@ -175,14 +175,16 @@ INSERT INTO detalle_orden(
 	 (10,10,1,10000,5);
 
 -- CREACIÓN DE VISTAS
--- Creacion vista de top de productos más vendidos
-CREATE OR REPLACE VIEW Vw_productos_vendidos AS
-(SELECT p.nombre AS Nombre_producto,cantidad AS Unidades_vendidas,total_orden AS Ingresos
+-- Creacion vista de top de productos con más unidades vendidas
+    
+    CREATE OR REPLACE VIEW Vw_productos_vendidos AS
+(SELECT p.nombre AS Nombre_producto,cantidad AS Unidades_vendidas
 	FROM detalle_orden AS d
 	JOIN productos AS p 
     ON d.id_producto=p.id_producto
     GROUP BY nombre
-    ORDER BY d.total_orden DESC);
+    ORDER BY d.Cantidad DESC);
+    
     
 -- Creacion vista top de rappitenderos con mayores ordenes 
 CREATE OR REPLACE VIEW Vw_top_rappitenderos AS
