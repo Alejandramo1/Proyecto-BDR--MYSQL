@@ -1,6 +1,8 @@
 -- DROP DATABASE RAPPI;
 
-CREATE DATABASE IF NOT EXISTS Rappi ;
+CREATE DATABASE IF NOT EXISTS Rappi
+CHARACTER SET utf8 COLLATE utf8_general_ci; -- Formato estándar para almacenar caracteres
+
 -- Tablas
 -- Usar base de datos 
 USE rappi;
