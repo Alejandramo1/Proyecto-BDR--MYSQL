@@ -171,12 +171,12 @@ INSERT INTO usuarios(
 	(11,'Omar','Peñaranda Fernandez','123DFJNC','Cra 193 #12-14','MEUDNnmo2@gmail.com','Masculino','3202948147'),
 	(12,'Juan Sebastian','Daza Gomez','ajHDNKA2','Calle 19 #12-15','NSJSJnmo2@gmail.com','Masculino','3228429485'),
 	(13,'Jose Jesus','Jimenez Martinez','ASJHXDa123','Calle 34c #2-24','josemñ@hotmail.com','Masculino','3246571239'),
-	(14,'Alexandra','Navarro Mendoza','23dafges','Calle 3r #2-24','mendozaale@gmail.com','Femenino','3124537829'),
-	(15,'Alexandra','Navarro Mendoza','23dafges','Calle 3r #2-24','mendozaale@gmail.com','Femenino','3124537829'),
-	(16,'Alexandra','Navarro Mendoza','23dafges','Calle 3r #2-24','mendozaale@gmail.com','Femenino','3124537829'),
-	(17,'Alexandra','Navarro Mendoza','23dafges','Calle 3r #2-24','mendozaale@gmail.com','Femenino','3124537829'),
-	(18,'Patricia','Navarro Mendoza','23dafges','Calle 3r #2-24','mendozaale@gmail.com','Femenino','3124537829'),
-	(19,'Nelson','Morales Mendoza','23dafges','Calle 3r #2-24','Morales@gmail.com','Masculino','3124537829');
+	(14,'Alejandra','Nemeces Muñoz','23dafges','Calle 15 #2-24','muñoza@gmail.com','Femenino','3124537829'),
+	(15,'Andre','Navarro Morales','763dafges','Calle 3r #2-24','moralesn@gmail.com','Femenino','3124537829'),
+	(16,'Antonia','Mercedez Meriño','5dafges','Calle 45 #2-24','meriñoo@gmail.com','Femenino','3124537829'),
+	(17,'Alejandro','Daza Palacio','24dafas','Calle 3r #2-24','palace45@gmail.com','Femenino','3124537829'),
+	(18,'Patricia','Navarro Mendoza','63dafges','Calle 3r #2-24','Navarro34@gmail.com','Femenino','3124537829'),
+	(19,'Nelson','Morales Mendoza','27dafges','Calle 3r #2-24','Morales@gmail.com','Masculino','3124537829');
 
 --  Inserción Tabla vendedores
 
