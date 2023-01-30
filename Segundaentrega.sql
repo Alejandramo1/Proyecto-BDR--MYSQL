@@ -1,3 +1,5 @@
+-- DROP DATABASE RAPPI;
+
 CREATE DATABASE IF NOT EXISTS Rappi ;
 -- Tablas
 -- Usar base de datos 
