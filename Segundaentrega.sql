@@ -1,5 +1,113 @@
+CREATE DATABASE IF NOT EXISTS Rappi ;
+-- Tablas
+-- Usar base de datos 
 USE rappi;
 
+CREATE TABLE IF NOT EXISTS pagos(
+	id_pago INT NOT NULL AUTO_INCREMENT,
+    fecha DATETIME NOT NULL,
+    metodo_pago VARCHAR(50) NOT NULL,
+	CONSTRAINT PK_PAGOS PRIMARY KEY(id_pago)
+    );
+
+-- Tabla Vendedor 
+CREATE TABLE IF NOT EXISTS Vendedor(
+	id_vendedor INT NOT NULL AUTO_INCREMENT,
+	Nombre VARCHAR(100) NOT NULL,
+    Direccion VARCHAR(150) NOT NULL,
+    Categoria VARCHAR(30) NOT NULL,
+    CONSTRAINT PK_VENDEDOR PRIMARY KEY(id_vendedor)
+    );
+
+								       
+-- Tabla usuarios
+CREATE TABLE IF NOT EXISTS usuarios(
+	id_usuario INT NOT NULL AUTO_INCREMENT,
+    nombre_usuario VARCHAR(50) NOT NULL,
+    apellido_usuario VARCHAR(50) NOT NULL,
+    contraseña VARCHAR(50) NOT NULL,
+    direccion VARCHAR(150) NOT NULL,
+    email VARCHAR(130) NOT NULL,
+    sexo VARCHAR(30) NOT NULL,
+    celular VARCHAR(30) NOT NULL,
+    CONSTRAINT PK_USUARIOS PRIMARY KEY (id_usuario) 
+    );
+    
+    -- Tabla rappitendero
+CREATE TABLE IF NOT EXISTS rappitenderos(
+	id_rappi INT NOT NULL AUTO_INCREMENT,
+    nombre_rappi VARCHAR(50) NOT NULL,
+    apellido_rappi VARCHAR(50) NOT NULL,
+    contraseña VARCHAR(50) NOT NULL,
+    email VARCHAR(130) NOT NULL,
+    sexo VARCHAR(30) NOT NULL,
+    celular VARCHAR(30) NOT NULL,
+    CONSTRAINT PK_RAPPITENDERO PRIMARY KEY (id_rappi)
+    );
+    
+-- Tabla Productos 
+CREATE TABLE IF NOT EXISTS Productos(
+	id_producto INT NOT NULL AUTO_INCREMENT,
+    id_vendedor INT NOT NULL,
+    Nombre VARCHAR(50) NOT NULL,
+    Descripcion VARCHAR(300) NOT NULL,
+    Precio FLOAT NOT NULL,
+    Categoria VARCHAR(30) NOT NULL,
+    CONSTRAINT PK_PRODUCTOS PRIMARY KEY(id_producto));
+    
+    -- Llaves foraneas tabla productos
+    ALTER TABLE Productos ADD CONSTRAINT FK_PRODUCTOS_VEN 
+    FOREIGN KEY (id_vendedor)
+    REFERENCES Vendedor (id_vendedor) ON DELETE CASCADE;
+    
+-- Tabla orden 
+
+CREATE TABLE IF NOT EXISTS orden(
+	id_orden INT NOT NULL AUTO_INCREMENT,
+    id_pago INT NOT NULL,
+    id_rappi INT NOT NULL,
+    id_vendedor INT NOT NULL,
+    id_usuario INT NOT NULL,
+    fecha DATETIME NOT NULL,
+    total FLOAT NOT NULL DEFAULT 0, -- Nuevo agregado
+    CONSTRAINT PK_ORDEN PRIMARY KEY(id_orden));
+    
+    -- Llaves foraneas tabla orden
+	ALTER TABLE Orden ADD CONSTRAINT FK_ORDEN_PAGO
+    FOREIGN KEY (id_pago)
+    REFERENCES pagos (id_pago) ON DELETE CASCADE;
+    
+    ALTER TABLE Orden ADD CONSTRAINT FK_ORDEN_RAPPI
+    FOREIGN KEY (id_rappi)
+    REFERENCES rappitenderos(id_rappi) ON DELETE CASCADE;
+
+    ALTER TABLE Orden ADD CONSTRAINT FK_ORDEN_USUARIOS
+    FOREIGN KEY (id_usuario)
+    REFERENCES usuarios (id_usuario) ON DELETE CASCADE;
+    
+	ALTER TABLE Orden ADD CONSTRAINT FK_ORDEN_VENDEDOR
+    FOREIGN KEY (id_vendedor)
+    REFERENCES vendedor (id_vendedor) ON DELETE CASCADE;
+    
+	-- Tabla detalle ordenes 
+CREATE TABLE IF NOT EXISTS detalle_orden(
+	id_detalle INT NOT NULL AUTO_INCREMENT,
+	id_orden INT NOT NULL,
+	id_producto INT NOT NULL,
+	Precio_unit FLOAT NOT NULL,
+	Cantidad FLOAT NOT NULL,
+    CONSTRAINT PK_DETALLE_ORDEN PRIMARY KEY (id_detalle));
+    
+	-- Llaves foraneas tabla detalle orden
+    
+	ALTER TABLE detalle_orden ADD CONSTRAINT FK_DETALLEORDEN_ORDEN
+    FOREIGN KEY (id_orden)
+    REFERENCES orden (id_orden) ON DELETE CASCADE;
+    
+    ALTER TABLE detalle_orden ADD CONSTRAINT FK_DETALLEORDEN_PROD
+    FOREIGN KEY (id_producto)
+    REFERENCES productos (id_producto)  ON DELETE CASCADE;
+    
 -- Inserción de datos
 -- Primero insertamos los datos correspondientes a la tabla usuarios
 
