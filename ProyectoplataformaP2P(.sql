@@ -794,7 +794,7 @@ $$;
     
       -- Prueba para insertar un registro
 	
-	SET FOREIGN_KEY_CHECKS=0; -- Funcion para no chequear llaves foraneas
+	-- SET FOREIGN_KEY_CHECKS=0; -- Funcion para no chequear llaves foraneas
     
     START TRANSACTION;
     DELETE FROM vendedor
