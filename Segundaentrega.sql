@@ -90,6 +90,7 @@ CREATE TABLE IF NOT EXISTS orden(
     REFERENCES vendedor (id_vendedor) ON DELETE CASCADE;
     
 	-- Tabla detalle ordenes 
+	
 CREATE TABLE IF NOT EXISTS detalle_orden(
 	id_detalle INT NOT NULL AUTO_INCREMENT,
 	id_orden INT NOT NULL,
@@ -394,10 +395,144 @@ END
 
 $$ ;
 
+
 -- STORED PROCEDURES
 
--- Primer Stored Procedures
+-- SP1: STORED PROCEDURE PARA INGRESAR NUEVAS ORDENES
+-- DROP PROCEDURE sp_nueva_orden;
+
+DELIMITER $$
+
+CREATE PROCEDURE sp_nueva_orden (
+	IN id_orden_entrada INT,
+    IN id_pago_entrada INT,
+	IN id_rappi_entrada INT,
+    IN id_vendedor_entrada INT,
+    IN id_usuario_entrada INT,
+    IN fecha_entrada DATETIME
+    )
+BEGIN 
+-- Enuncia los campos a insertar
+	INSERT INTO orden(
+        id_orden,
+        id_pago,
+        id_rappi,
+        id_vendedor,
+        id_usuario,
+        fecha)        
+-- Asigna los valores según los datos de entrada ingresados
+    VALUES(
+		id_orden_entrada,
+        id_pago_entrada,
+        id_rappi_entrada,
+        id_vendedor_entrada,
+        id_usuario_entrada,
+        fecha_entrada);
+
+-- Devuelve el campo ingresado
+	SELECT * FROM ORDEN ORDER BY id_orden DESC LIMIT 1;
+END
+
+$$;
+
+-- Ingresar una nueva orden
+START TRANSACTION;
+CALL sp_nueva_orden(11,
+	5,
+	7,
+    1,
+    2,
+    curtime()
+    );
+    
+    -- CURTIME;
+    -- ROLLBACK;
+    
+-- STORED PROCEDURE TABLA DETALLE DE ORDEN Y ORDEN
+-- EL SP DILIGENCIA LA TABLA DETALLE DE ORDEN ESPECIFICANDO LOS PRODUCTOS Y LA CANTIDAD DE CADA UNO DE ELLOS, ADEMAS DE ASOCIARLO
+-- CON EL PRECIO ESTABLECIDO EN LA TABLA PRODUCTOS. A SU VEZ REALIZA LA SUMATORIA DEL TOTAL DEL VALOR DE DICHOS PRODUCTOS Y
+-- LOS ACTUALIZA EN EL CAMPO "total" DE LA TABLA ORDEN.
+
+-- SP detalle orden
+DELIMITER $$
+CREATE PROCEDURE sp_detalle_orden(
+	IN id_orden_entrada INT,
+    IN id_producto_entrada INT,
+    IN Cantidad_entrada INT )
+BEGIN 
+DECLARE v_Precio_prod FLOAT;
+DECLARE v_cantidad_prod FLOAT; 
+
+	SELECT Precio 
+		INTO v_Precio_prod
+	FROM Productos AS p
+	WHERE id_producto = id_producto_entrada;
+
+    INSERT INTO detalle_orden(
+		id_detalle,
+        id_orden,
+        id_producto,
+        precio_unit, 
+        cantidad)
+	VALUES( 
+        NULL, 
+        id_orden_entrada,
+        id_producto_entrada,
+        v_Precio_prod,
+        Cantidad_entrada);
+	
+    -- En este se utilizara un cursos para ir recorriendo cada una de las filas
+    BEGIN 
+    -- Se declara la variable v_finbucle con valor de cero la cual tendra la finalidad de concluir el bucle.
+	DECLARE v_finbucle INT DEFAULT 0;
+	DECLARE v_total_orden FLOAT;
+    DECLARE v_total FLOAT DEFAULT 0; -- Para que el contador del bucle siempre inicie en cero
+    DECLARE cursor_detalle CURSOR FOR SELECT Precio_unit*cantidad FROM detalle_orden WHERE id_orden=id_orden_entrada;
+	DECLARE CONTINUE HANDLER FOR NOT FOUND SET v_finbucle = 1; -- Esta sentencia asigna a la variable v_finbucle el valor de 1 cuando no existen mas registros con las condiciones dadas
+
+OPEN cursor_detalle;
+    -- Establezco el bucle
+  bucle: LOOP
+  -- El Fetch tiene como finalidad recuperar los valores de la consulta establecida anteriormente 
+  -- y las va almacenando una a una en la variable v_total_orden hasta que se cumpla el bucle
+    FETCH cursor_detalle INTO v_total_orden ;
+    IF v_finbucle = 1 THEN
+      LEAVE bucle;
+    END IF;
+	-- Asignación en la variable contador, los valores de productos asociados
+    SET v_total = v_total + v_total_orden;
+    END LOOP bucle;
+    
+    -- Una vez finalizado el bucle realiza actualizacion de registo en eñ campo total de la tabla orden
+	UPDATE orden 
+    SET total = v_total -- En esta sentencia se asigna al campo total el valor que la variable que ha ido acumulando en el bucle
+    WHERE id_orden=id_orden_entrada;
+	
+CLOSE cursor_detalle;
+END;
+END;
+$$;
+
+-- Teniendo en cuenta el registro ingresado anteriormente numero 11, probamos el stored procedure ingresando 3 productos
+-- correspondientes al mismo numero de orden;
+
+START TRANSACTION;
+call sp_detalle_orden(11,10,4);
+call sp_detalle_orden(11,1,1);
+call sp_detalle_orden(11,18,1);
+call sp_detalle_orden(11,10,1);
+call sp_detalle_orden(10,1,1);
+
+-- COMMIT;
+-- ROLLBACK;
+
+-- SELECT * FROM DETALLE_ORDEN ORDER BY id_orden DESC;
+-- SELECT * FROM ORDEN ORDER BY id_orden DESC; 
+
+
+-- SP2 Stored Procedures 
 -- Crea un procedimiento almacenado para consultar en la tabla de vendedores según un campo de ordenación
+
 DELIMITER $$
 
 CREATE PROCEDURE sp_vendedores (
