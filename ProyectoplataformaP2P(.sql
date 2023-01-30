@@ -167,8 +167,8 @@ INSERT INTO usuarios(
 	(7,'Nelfa','Sanchez Daza','SKSDH2','Cra 149 #12-10','alejaTG@gmail.com','Femenino','3124575821'),
 	(8,'Ariel','Gomez Martinez','DHUW3','Cra 129 #12-11','alDJFIA2@gmail.com','Masculino','3134968212'),
 	(9,'Gabriel','Paul Macaron','2H21f3','Cra 159 #12-12','aDJSSnmo2@gmail.com','Masculino','3124859293'),
-	(10,'Juan Camilo','Anaya PeÃ±a','13DFJ','Cra 19 #12-163','ALKSDnmo2@gmail.com','Masculino','3214849204'),
-	(11,'Omar','Penaranda Fernandez','123DFJNC','Cra 193 #12-14','MEUDNnmo2@gmail.com','Masculino','3202948147'),
+	(10,'Juan Camilo','Anaya Peña','13DFJ','Cra 19 #12-163','ALKSDnmo2@gmail.com','Masculino','3214849204'),
+	(11,'Omar','Peñaranda Fernandez','123DFJNC','Cra 193 #12-14','MEUDNnmo2@gmail.com','Masculino','3202948147'),
 	(12,'Juan Sebastian','Daza Gomez','ajHDNKA2','Calle 19 #12-15','NSJSJnmo2@gmail.com','Masculino','3228429485'),
 	(13,'Jose Jesus','Jimenez Martinez','ASJHXDa123','Calle 34c #2-24','josemñ@hotmail.com','Masculino','3246571239'),
 	(14,'Alexandra','Navarro Mendoza','23dafges','Calle 3r #2-24','mendozaale@gmail.com','Femenino','3124537829'),
@@ -194,7 +194,7 @@ VALUES
 	(5,'Rapimercar','Calle 15 #4-6','Supermercado'),
 	(6,'Drogueria colsubsidio','Calle 2 #34-7','Farmacia'),
 	(7,'Porthos pub','Calle 24 #4-8','Restaurante'),
-	(8,'Antioquenitos','Calle 54 #34-9','Licores'),
+	(8,'Antioqueñitos','Calle 54 #34-9','Licores'),
 	(9,'La economia','Calle 13 #4-10','Farmacia'),
 	(10,'Tome aqui','Calle 17 #34-11','Licores'),
 	(11,'Rickys','Calle 6ta 4-53','Licores'),
@@ -215,13 +215,13 @@ INSERT INTO rappitenderos(
   1,'Carlos','Ducuara Rodriguez','fjda12','Carlosdu@hotmail.com','Masculino','3294584593'),
  (2,'Sonia','Suarez Camargo','fsfs434','soniadk@gmail.com','Femenino','3458183943'),
  (3,'Monica','Araujo Noguera','JFJDNM45','lapioj2@yahoo.com','Femenino','3124584024'),
- (4,'Maria','Nore Rincon','123KDs2','Marianore@gmail.com','Femenino','3224531233'),
+ (4,'Maria','Noreña Rincon','123KDs2','Marianore@gmail.com','Femenino','3224531233'),
  (5,'Pedro','Fernandez Siloe','23eJS32','Pedroferna@gmail.com','Masculino','3202584082'),
  (6,'Margarita','Sanchez Morales','AKDJ23dj','Marga134@gmail.com','Femenino','3103462124'),
  (7,'Nelfa','Sanchez Daza','SKSDH2','alejaTG@gmail.com','Femenino','3124575821'),
  (8,'Juan Jose','Cariano Suarez','SJjd','JuanJ@gmail.com','Masculino','3145968212'),
  (9,'Gabriela','Mocoa Morales','234ed3','GabrielaMocoa@gmail.com','Masculino','3124859293'),
- (10,'Camila','Penaranda Ramirez','13DFJ','penarandao@gmail.com','Femenino','3145674321');
+ (10,'Camila','Peñaranda Ramirez','13DFJ','penarandao@gmail.com','Femenino','3145674321');
  
  -- Inserción Tabla productos
  
