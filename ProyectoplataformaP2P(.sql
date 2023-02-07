@@ -321,6 +321,11 @@ INSERT INTO detalle_orden(
 
 -- CREACIÓN DE VISTAS
 -- V1: Creacion vista de top de productos con más unidades vendidas
+-- El objetivo de esta vista es organizar de mayor a menor las unidades según los ingresos totales generados por la venta del producto ofrecido en la plataforma.
+
+-- Tablas que relacionan:
+-- 1.Detalle_orden
+-- 2.Productos
     
     CREATE OR REPLACE VIEW Vw_productos_vendidos AS
 (SELECT p.nombre AS Nombre_producto,cantidad AS Unidades_vendidas
@@ -334,6 +339,13 @@ INSERT INTO detalle_orden(
 -- SELECT * FROM Vw_productos_vendidos;
     
 -- V2: Creacion vista top de rappitenderos con mayores numero de ordenes en la aplicación
+-- Esta vista genera el top de los rappitenderos con mayores ordenes otorgadas, a traves de un Join.
+
+-- Tablas que relacionan:
+
+-- 1.Rappitenderos
+-- 2.Orden
+
 CREATE OR REPLACE VIEW Vw_top_rappitenderos AS
 (SELECT CONCAT(r.nombre_rappi, ' ', r.apellido_rappi) As Rappitendero, COUNT(o.id_orden) AS Numero_ordenes, o.total AS Total_ordenes
 FROM rappitenderos AS r
@@ -345,6 +357,13 @@ ORDER BY Numero_ordenes DESC);
 -- SELECT * FROM Vw_top_rappitenderos;
 
 -- V3: Medios de pago más usados 
+Esta vista ordena de mayor a menor los metodos de pago con mayor uso en la plataforma a través de la unión de la tabla de pagos y orden según el número de veces usado de forma descendiente.
+
+-- Tablas que relacionan:
+
+-- 1.Pagos
+-- 2.Orden
+
 CREATE OR REPLACE VIEW Vw_top_metodo_pago AS
 (SELECT p.metodo_pago, COUNT(p.id_pago) AS numero_veces_usado, o.total
 FROM pagos AS p
@@ -357,6 +376,13 @@ ORDER BY numero_veces_usado DESC;
 -- SELECT * FROM Vw_top_metodo_pago;
 
 -- V4: Vendedores con más numero de ordenes
+-- Esta vista genera un listado de los vendedores con mayor número de ordenes en la plataforma a través de la unión de la tabla de vendedor y orden.
+
+-- Tablas que relacionan:
+
+-- 1.Vendedor
+-- 2.Orden
+
 CREATE OR REPLACE VIEW Vw_top_vendedores AS
 (SELECT v.nombre, COUNT(o.id_orden) AS numero_ordenes, o.total
 FROM vendedor AS v
@@ -369,6 +395,12 @@ ORDER BY numero_ordenes DESC;
 -- SELECT * FROM Vw_top_vendedores;
 
 -- V5: Usuarios con más numero de ordenes en rappi
+
+-- Esta vista genera un listado de los usuarios ordenados de mayor a menor según el numero de ordenes realizadas en la plataforma a través de la unión de la tabla de usuarios y orden.
+-- Tablas que relacionan:
+
+-- 1.Usuarios
+-- 2.Orden
 
 CREATE OR REPLACE VIEW Vw_top_usuarios AS
 (SELECT u.id_usuario, CONCAT(u.nombre_usuario, ' ', u.apellido_usuario) As Usuarios, COUNT(o.id_orden) AS numero_ordenes, o.total AS Total_ordenes
