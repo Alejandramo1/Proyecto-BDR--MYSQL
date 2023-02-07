@@ -103,7 +103,7 @@ Tablas que relaciona:
 
 **2. Nombre:sp_detalle_orden**
 
-	Diligencia la tabla detalle de orden especificando los productos y la cantidad de cada uno de ellos, ademas de asociarlo con el precio establecido en la tabla productos, realiza el calculo del valor de la orden, multiplicando la cantidad por el precio y actualizandolo en el campo "total" de la tabla orden.
+Diligencia la tabla detalle de orden especificando los productos y la cantidad de cada uno de ellos, ademas de asociarlo con el precio establecido en la tabla productos, realiza el calculo del valor de la orden, multiplicando la cantidad por el precio y actualizandolo en el campo "total" de la tabla orden.
 	
 Tablas que relaciona:
 
