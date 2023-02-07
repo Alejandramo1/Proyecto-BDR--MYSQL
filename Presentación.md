@@ -93,7 +93,24 @@ Tablas que relacionan:
 
 **👀STORED PROCEDURES:**
 
-**1. Nombre:sp_vendedores** 
+**1. Nombre:sp_nueva_orden**
+
+Crea un procedimiento almacenado para ingresar datos de usuarios nuevos en la tabla de usuarios según los valores de entrada. Lo que permite agilizar la inserción de nuevos datos a la tabla.
+
+Tablas que relaciona:
+
+1.Orden.
+
+**2. Nombre:sp_detalle_orden**
+
+	Diligencia la tabla detalle de orden especificando los productos y la cantidad de cada uno de ellos, ademas de asociarlo con el precio establecido en la tabla productos, realiza el calculo del valor de la orden, multiplicando la cantidad por el precio y actualizandolo en el campo "total" de la tabla orden.
+	
+Tablas que relaciona:
+
+1.Orden.
+2.Detalle orden
+
+**3. Nombre:sp_vendedores** 
 
 Crea un procedimiento almacenado para consultar todas las filas de la tabla de vendedores según un campo de ordenación ingresado ya sea de manera ascendente o descendente.
 
@@ -101,7 +118,7 @@ Tablas que relacionan:
 
 1.Vendedor
 
-**2. Nombre:sp_usuario_nuevo** 
+**4. Nombre:sp_usuario_nuevo** 
 
 Crea un procedimiento almacenado para ingresar datos de usuarios nuevos en la tabla de usuarios según los valores de entrada. Lo que permite agilizar la inserción de nuevos datos a la tabla.
 
