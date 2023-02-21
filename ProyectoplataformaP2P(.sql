@@ -27,25 +27,25 @@ CREATE TABLE IF NOT EXISTS Vendedor(
 -- Tabla usuarios
 CREATE TABLE IF NOT EXISTS usuarios(
 	id_usuario INT NOT NULL AUTO_INCREMENT,
-    nombre_usuario VARCHAR(50) NOT NULL,
+    nombre_usuario VARCHAR(30) NOT NULL,
     apellido_usuario VARCHAR(50) NOT NULL,
     contraseña VARCHAR(50) NOT NULL,
-    direccion VARCHAR(150) NOT NULL,
-    email VARCHAR(130) NOT NULL,
-    sexo VARCHAR(30) NOT NULL,
-    celular VARCHAR(30) NOT NULL,
+    direccion VARCHAR(50) NOT NULL,
+    email VARCHAR(45) NOT NULL,
+    sexo VARCHAR(20) NOT NULL,
+    celular VARCHAR(20) NOT NULL,
     CONSTRAINT PK_USUARIOS PRIMARY KEY (id_usuario) 
     );
     
     -- Tabla rappitendero
 CREATE TABLE IF NOT EXISTS rappitenderos(
 	id_rappi INT NOT NULL AUTO_INCREMENT,
-    nombre_rappi VARCHAR(50) NOT NULL,
+    nombre_rappi VARCHAR(30) NOT NULL,
     apellido_rappi VARCHAR(50) NOT NULL,
     contraseña VARCHAR(50) NOT NULL,
-    email VARCHAR(130) NOT NULL,
-    sexo VARCHAR(30) NOT NULL,
-    celular VARCHAR(30) NOT NULL,
+    email VARCHAR(45) NOT NULL,
+    sexo VARCHAR(20) NOT NULL,
+    celular VARCHAR(20) NOT NULL,
     CONSTRAINT PK_RAPPITENDERO PRIMARY KEY (id_rappi)
     );
     
