@@ -10,15 +10,15 @@ USE rappi;
 CREATE TABLE IF NOT EXISTS pagos(
 	id_pago INT NOT NULL AUTO_INCREMENT,
     fecha DATETIME NOT NULL,
-    metodo_pago VARCHAR(50) NOT NULL,
+    metodo_pago VARCHAR(30) NOT NULL,
 	CONSTRAINT PK_PAGOS PRIMARY KEY(id_pago)
     );
 
 -- Tabla Vendedor 
 CREATE TABLE IF NOT EXISTS Vendedor(
 	id_vendedor INT NOT NULL AUTO_INCREMENT,
-	Nombre VARCHAR(100) NOT NULL,
-    Direccion VARCHAR(150) NOT NULL,
+	Nombre VARCHAR(50) NOT NULL,
+    Direccion VARCHAR(100) NOT NULL,
     Categoria VARCHAR(30) NOT NULL,
     CONSTRAINT PK_VENDEDOR PRIMARY KEY(id_vendedor)
     );
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS usuarios(
     nombre_usuario VARCHAR(30) NOT NULL,
     apellido_usuario VARCHAR(50) NOT NULL,
     contraseña VARCHAR(50) NOT NULL,
-    direccion VARCHAR(50) NOT NULL,
+    direccion VARCHAR(100) NOT NULL,
     email VARCHAR(45) NOT NULL,
     sexo VARCHAR(20) NOT NULL,
     celular VARCHAR(20) NOT NULL,
@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS Bitacora_vendedor_log (
         id_vendedor INT NOT NULL,
 		Tipo_movimiento VARCHAR(30),
         Nombre VARCHAR(100) NOT NULL,
-        Direccion VARCHAR(150) NOT NULL,
+        Direccion VARCHAR(100) NOT NULL,
         Categoria VARCHAR(30),
         Usuario_registro VARCHAR(100),
         Fecha DATE,
