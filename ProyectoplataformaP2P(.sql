@@ -833,7 +833,7 @@ $$ DELIMITER ;
 		SET Direccion='Cra 21f #35-5'
 	WHERE id_vendedor=1;
     -- Revisar datos
-    SELECT * FROM Bitacora_vendedor_log;
+    -- SELECT * FROM Bitacora_vendedor_log;
     
     -- T2: SEGUNDO TRIGGER
     -- Este trigger inserta un registro nuevo en la tabla vendedores primero evaluando que no se encuentre repetido
@@ -877,7 +877,7 @@ $$ DELIMITER ;
 	VALUES('Ale', 'Calle 6ta', 'Licores');
     
     -- Revisar datos
-    SELECT * FROM Bitacora_vendedor_log;
+    -- SELECT * FROM Bitacora_vendedor_log;
     
 -- T3: TERCER TRIGGER
     -- Este trigger elimina un registro en la tabla vendedores.
@@ -923,7 +923,7 @@ $$ DELIMITER ;
     -- ROLLBACK;
     
     -- Revisar datos
-    SELECT * FROM Bitacora_vendedor_log;
+    -- SELECT * FROM Bitacora_vendedor_log;
     
      -- TABLA USUARIOS
 -- T4: TRIGGER BEFORE
@@ -975,7 +975,7 @@ $$ DELIMITER ;
 	WHERE id_usuario=2;
     -- ROLLBACK; 
     -- Revisar datos
-    SELECT * FROM Bitacora_Usuario_log;
+    -- SELECT * FROM Bitacora_Usuario_log;
     
 -- TABLA USUARIOS
 -- T5: TRIGGER INSERT AFTER
@@ -1036,7 +1036,7 @@ $$ DELIMITER ;
 	
     -- Revisar datos
     
-    SELECT * FROM Bitacora_Usuario_log;
+    -- SELECT * FROM Bitacora_Usuario_log;
     
 -- TABLA USUARIOS
 -- T6: TRIGGER DELETE AFTER
