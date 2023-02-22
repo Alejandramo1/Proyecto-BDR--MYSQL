@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS pagos(
 
 ALTER TABLE pagos MODIFY COLUMN Id_pago VARCHAR(150) COMMENT 'Este número es un identificador único del pago';
 ALTER TABLE pagos MODIFY COLUMN fecha VARCHAR(150) COMMENT 'Fecha y hora en la que se registro el pago';
-ALTER TABLE pagos MODIFY COLUMN metodo_pago VARCHAR(150) COMMENT 'Se registra si el pago fue en efectivo, tarjeta de credito o pse';
+ALTER TABLE pagos MODIFY COLUMN metodo_pago VARCHAR(150) COMMENT 'Se registra si el pago fue en efectivo, tarjeta de credito, Nequi o pse y el banco utilizado';
 
 -- Tabla Vendedor 
 CREATE TABLE IF NOT EXISTS Vendedor(
