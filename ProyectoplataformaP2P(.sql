@@ -802,7 +802,7 @@ $$;
         -- Crear el trigger que registre los datos de modificación del registro en la tabla de vendedores
     DELIMITER $$
     CREATE TRIGGER tr_update_vendedor
-    BEFORE UPDATE ON VENDEDOR
+    BEFORE UPDATE ON vendedor
     FOR EACH ROW
     BEGIN
         INSERT INTO Bitacora_vendedor_log (
@@ -843,7 +843,7 @@ $$;
     
     DELIMITER $$
     CREATE TRIGGER tr_insert_vendedor
-	AFTER INSERT ON VENDEDOR
+	AFTER INSERT ON vendedor
     FOR EACH ROW
     BEGIN
 			INSERT INTO Bitacora_vendedor_log (
@@ -887,7 +887,7 @@ $$;
     
     DELIMITER $$
     CREATE TRIGGER tr_delete_vendedor
-	BEFORE DELETE ON VENDEDOR
+	BEFORE DELETE ON vendedor
     FOR EACH ROW
     BEGIN
 			INSERT INTO Bitacora_vendedor_log(
