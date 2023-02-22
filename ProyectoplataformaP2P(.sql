@@ -410,7 +410,7 @@ INSERT INTO detalle_orden(
 
 -- CREACIÓN DE VISTAS
 -- V1: Creacion vista de top de productos con más unidades vendidas
--- El objetivo de esta vista es organizar de mayor a menor las unidades según los ingresos totales generados por la venta del producto ofrecido en la plataforma.
+-- El objetivo de esta vista es arrojar un listado de los productos de mayor a menor según las unidades vendidas registradas en la plataforma.
 
 -- Tablas que relacionan:
 -- 1.Detalle_orden
@@ -428,7 +428,7 @@ INSERT INTO detalle_orden(
 -- SELECT * FROM Vw_productos_vendidos;
     
 -- V2: Creacion vista top de rappitenderos con mayores numero de ordenes en la aplicación
--- Esta vista genera el top de los rappitenderos con mayores ordenes otorgadas, a traves de un Join.
+-- Esta vista genera el top de los rappitenderos con mayor numero de domicilios realizados, a través de un INNER JOIN.
 
 -- Tablas que relacionan:
 
@@ -446,7 +446,7 @@ ORDER BY Numero_ordenes DESC);
 -- SELECT * FROM Vw_top_rappitenderos;
 
 -- V3: Medios de pago más usados 
-Esta vista ordena de mayor a menor los metodos de pago con mayor uso en la plataforma a través de la unión de la tabla de pagos y orden según el número de veces usado de forma descendiente.
+-- Esta vista ordena de mayor a menor los métodos de pago que tienen mayor uso en la plataforma y el monto total efectuado, a través de la unión de la tabla de pagos y orden según el número de veces usado de forma descendiente.
 
 -- Tablas que relacionan:
 
@@ -504,7 +504,7 @@ ORDER BY numero_ordenes DESC);
 
 -- CREACIÓN DE FUNCIONES 
 
--- F1: La primera función nos calcula el numero de compras que ha realizado un usuario.
+-- F1: La primera función calcula el numero de compras que ha realizado un usuario.
 DELIMITER $$
 CREATE FUNCTION fnnum_compras (id_usuario_param INT)
 RETURNS INT
@@ -522,7 +522,7 @@ BEGIN
 
 END
 
-$$ ;
+$$ DELIMITER ;
 
 -- Prueba para funcion fnnum_compras
 -- SELECT fnnum_compras(12) as Numero_compras;
@@ -544,7 +544,7 @@ BEGIN
 
 END
 
-$$ ;
+$$ DELIMITER ;
 
 -- Prueba para funcion fncat_prod_vendidos
 -- SELECT fncat_prod_vendidos(12) as Categoria_producto;
@@ -568,7 +568,7 @@ BEGIN
 
 END
 
-$$ ;
+$$ DELIMITER ;
 
 -- Prueba para funcion fnund_vendidas_cat 
 -- SELECT fnund_vendidas_cat("Licores") as Unidades_vendidas;
@@ -610,14 +610,14 @@ BEGIN
 	SELECT * FROM ORDEN ORDER BY id_orden DESC LIMIT 1;
 END
 
-$$;
+$$ DELIMITER ;
 
 -- Prueba SP1:
 -- Ingresar una nueva orden
 -- START TRANSACTION;
 -- CALL sp_nueva_orden(11,5,7,1,2,curtime());
     
-    -- CURTIME;
+    -- COMMIT;
     -- ROLLBACK;
     
 -- SP2: STORED PROCEDURE TABLA DETALLE DE ORDEN Y ORDEN
@@ -683,7 +683,7 @@ OPEN cursor_detalle;
 CLOSE cursor_detalle;
 END;
 END;
-$$;
+$$ DELIMITER ;
 
 -- Prueba SP2:
 -- Teniendo en cuenta el registro ingresado anteriormente numero 11, probamos el stored procedure ingresando 3 productos
@@ -736,7 +736,7 @@ BEGIN
 
 END
 
-$$ ;
+$$ DELIMITER ;
 
 -- Prueba para los Stored procedures
 
@@ -785,7 +785,7 @@ BEGIN
 	SELECT * FROM USUARIOS ORDER BY id_usuario DESC LIMIT 1;
 END
 
-$$;
+$$ DELIMITER ;
 
 -- Prueba SP4 para los Stored procedures
 
@@ -826,7 +826,7 @@ $$;
             CURTIME()
         );
     END
-    $$ ;
+    $$ DELIMITER ;
     
        -- Prueba para modificar un registro
     UPDATE vendedor
@@ -867,7 +867,7 @@ $$;
             CURTIME()
         );
     END
-    $$ ;
+    $$ DELIMITER ;
     
       -- Prueba para insertar un registro
     INSERT INTO vendedor(
@@ -911,7 +911,7 @@ $$;
             CURTIME()
         );
     END
-    $$ ;
+    $$ DELIMITER ;
     
       -- Prueba para insertar un registro
 	
@@ -966,7 +966,7 @@ $$;
             CURTIME()
         );
 	END;
-    $$ ;
+    $$ DELIMITER ;
     
     -- Prueba para modificar un registro
     START TRANSACTION;
@@ -1017,7 +1017,7 @@ $$;
             CURTIME()
         );
 	END;
-    $$ ;
+    $$ DELIMITER ;
     
     -- Prueba para insertar un registro en la tabla usuarios usando el SP ctrado anteriormente
     -- Ingresar datos de nuevo usuario
