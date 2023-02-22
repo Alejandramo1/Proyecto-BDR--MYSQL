@@ -16,9 +16,9 @@ CREATE TABLE IF NOT EXISTS pagos(
     
 -- Query para agregar comentarios en las columnas en la tabla pagos 
 
-ALTER TABLE pagos MODIFY COLUMN Id_pago VARCHAR(150) COMMENT 'Este número es un identificador único del pago';
-ALTER TABLE pagos MODIFY COLUMN fecha VARCHAR(150) COMMENT 'Fecha y hora en la que se registro el pago';
-ALTER TABLE pagos MODIFY COLUMN metodo_pago VARCHAR(150) COMMENT 'Se registra si el pago fue en efectivo, tarjeta de credito, Nequi o pse y el banco utilizado';
+ALTER TABLE pagos MODIFY COLUMN Id_pago INT NOT NULL AUTO_INCREMENT COMMENT 'Este número es un identificador único del pago';
+ALTER TABLE pagos MODIFY COLUMN fecha DATETIME NOT NULL COMMENT 'Fecha y hora en la que se registro el pago';
+ALTER TABLE pagos MODIFY COLUMN metodo_pago VARCHAR(30) NOT NULL COMMENT 'Se registra si el pago fue en efectivo, tarjeta de credito, Nequi o pse y el banco utilizado';
 
 -- Tabla Vendedor 
 CREATE TABLE IF NOT EXISTS Vendedor(
@@ -29,12 +29,12 @@ CREATE TABLE IF NOT EXISTS Vendedor(
     CONSTRAINT PK_VENDEDOR PRIMARY KEY(id_vendedor)
     );
 
-    -- Query para agregar comentarios en las columnas en la tabla vendedor
+  -- Query para agregar comentarios en las columnas en la tabla vendedor
 
-ALTER TABLE Vendedor MODIFY COLUMN id_vendedor VARCHAR(150) COMMENT 'Este número es un identificador único del vendedor';
-ALTER TABLE Vendedor MODIFY COLUMN Nombre VARCHAR(150) COMMENT 'Nombre del vendedor';
-ALTER TABLE Vendedor MODIFY COLUMN Direccion VARCHAR(150) COMMENT 'Dirección donde se encuentra el establecimiento';
-ALTER TABLE Vendedor MODIFY COLUMN Categoria VARCHAR(150) COMMENT 'Categoría de productos que ofrece el vendedor';
+ALTER TABLE Vendedor MODIFY COLUMN id_vendedor INT NOT NULL AUTO_INCREMENT COMMENT 'Este número es un identificador único del vendedor';
+ALTER TABLE Vendedor MODIFY COLUMN Nombre VARCHAR(50) NOT NULL COMMENT 'Nombre del vendedor';
+ALTER TABLE Vendedor MODIFY COLUMN Direccion VARCHAR(100) NOT NULL COMMENT 'Dirección donde se encuentra el establecimiento';
+ALTER TABLE Vendedor MODIFY COLUMN Categoria VARCHAR(30) NOT NULL COMMENT 'Categoría de productos que ofrece el vendedor';
 
 								       
 -- Tabla usuarios
@@ -50,16 +50,16 @@ CREATE TABLE IF NOT EXISTS usuarios(
     CONSTRAINT PK_USUARIOS PRIMARY KEY (id_usuario) 
     );
     
-    -- Query para agregar comentarios en las columnas en la tabla Usuarios
+   -- Query para agregar comentarios en las columnas en la tabla Usuarios
 
-ALTER TABLE Usuarios MODIFY COLUMN id_usuario VARCHAR(150) COMMENT 'Este número es un identificador único del usuario registrado';
-ALTER TABLE Usuarios MODIFY COLUMN Nombre_usuario VARCHAR(150) COMMENT 'Nombres del usuario';
-ALTER TABLE Usuarios MODIFY COLUMN apellido_usuario VARCHAR(150) COMMENT 'Apellidos del usuario';
-ALTER TABLE Usuarios MODIFY COLUMN contraseña VARCHAR(150) COMMENT 'Contraseña registrada por el usuario para manejar su cuenta';
-ALTER TABLE Usuarios MODIFY COLUMN direccion VARCHAR(150) COMMENT 'Dirección registrada por el usuario';
-ALTER TABLE Usuarios MODIFY COLUMN email VARCHAR(150) COMMENT 'Correo electronico registrado por el usuario';
-ALTER TABLE Usuarios MODIFY COLUMN sexo VARCHAR(150) COMMENT 'Sexo con el cual se identifica el usuario';
-ALTER TABLE Usuarios MODIFY COLUMN celular VARCHAR(150) COMMENT 'Numero de telefono movil registrado por el usuario';
+ALTER TABLE Usuarios MODIFY COLUMN id_usuario INT NOT NULL AUTO_INCREMENT COMMENT 'Este número es un identificador único del usuario registrado';
+ALTER TABLE Usuarios MODIFY COLUMN Nombre_usuario VARCHAR(30) NOT NULL COMMENT 'Nombres del usuario';
+ALTER TABLE Usuarios MODIFY COLUMN apellido_usuario VARCHAR(50) NOT NULL COMMENT 'Apellidos del usuario';
+ALTER TABLE Usuarios MODIFY COLUMN contraseña VARCHAR(50) NOT NULL COMMENT 'Contraseña registrada por el usuario para manejar su cuenta';
+ALTER TABLE Usuarios MODIFY COLUMN direccion VARCHAR(100) NOT NULL COMMENT 'Dirección registrada por el usuario';
+ALTER TABLE Usuarios MODIFY COLUMN email VARCHAR(45) NOT NULL COMMENT 'Correo electronico registrado por el usuario';
+ALTER TABLE Usuarios MODIFY COLUMN sexo VARCHAR(20) NOT NULL COMMENT 'Sexo con el cual se identifica el usuario';
+ALTER TABLE Usuarios MODIFY COLUMN celular  VARCHAR(20) NOT NULL COMMENT 'Numero de telefono movil registrado por el usuario';
 
     -- Tabla rappitendero
 CREATE TABLE IF NOT EXISTS rappitenderos(
@@ -73,15 +73,15 @@ CREATE TABLE IF NOT EXISTS rappitenderos(
     CONSTRAINT PK_RAPPITENDERO PRIMARY KEY (id_rappi)
     );
     
-     -- Query para agregar comentarios en las columnas en la tabla Rappitenderos
+   -- Query para agregar comentarios en las columnas en la tabla Rappitenderos
 
-ALTER TABLE rappitenderos MODIFY COLUMN id_rappi VARCHAR(150) COMMENT 'Identificador único del rappitendero asociado';
-ALTER TABLE rappitenderos MODIFY COLUMN nombre_rappi VARCHAR(150) COMMENT 'Nombres del rappitendero';
-ALTER TABLE rappitenderos MODIFY COLUMN apellido_rappi VARCHAR(150) COMMENT 'Apellidos del rappitendero';
-ALTER TABLE rappitenderos MODIFY COLUMN contraseña VARCHAR(150) COMMENT 'Contraseña registrada por el rappitendero para manejar su cuenta';
-ALTER TABLE rappitenderos MODIFY COLUMN email VARCHAR(150) COMMENT 'Dirección de correo electronico registrada por el rappitendero';
-ALTER TABLE rappitenderos MODIFY COLUMN sexo VARCHAR(150) COMMENT 'Sexo con el cual se identifica el rappitendero';
-ALTER TABLE rappitenderos MODIFY COLUMN celular VARCHAR(150) COMMENT 'Numero de telefono movil registrado por el rappitendero';
+ALTER TABLE rappitenderos MODIFY COLUMN id_rappi INT NOT NULL AUTO_INCREMENT COMMENT 'Identificador único del rappitendero asociado';
+ALTER TABLE rappitenderos MODIFY COLUMN nombre_rappi VARCHAR(30) NOT NULL COMMENT 'Nombres del rappitendero';
+ALTER TABLE rappitenderos MODIFY COLUMN apellido_rappi VARCHAR(50) NOT NULL COMMENT 'Apellidos del rappitendero';
+ALTER TABLE rappitenderos MODIFY COLUMN contraseña VARCHAR(50) NOT NULL COMMENT 'Contraseña registrada por el rappitendero para manejar su cuenta';
+ALTER TABLE rappitenderos MODIFY COLUMN email VARCHAR(45) NOT NULL COMMENT 'Dirección de correo electronico registrada por el rappitendero';
+ALTER TABLE rappitenderos MODIFY COLUMN sexo VARCHAR(20) NOT NULL COMMENT 'Sexo con el cual se identifica el rappitendero';
+ALTER TABLE rappitenderos MODIFY COLUMN celular VARCHAR(20) NOT NULL COMMENT 'Numero de telefono movil registrado por el rappitendero';
     
 -- Tabla Productos 
 CREATE TABLE IF NOT EXISTS Productos(
@@ -95,13 +95,13 @@ CREATE TABLE IF NOT EXISTS Productos(
     
      -- Query para agregar comentarios en las columnas en la tabla Productos
 
-ALTER TABLE Productos MODIFY COLUMN id_producto VARCHAR(150) COMMENT 'Identificador único del producto registrado en la app';
-ALTER TABLE Productos MODIFY COLUMN id_vendedor VARCHAR(150) COMMENT 'Nombre del vendedor que suministra el producto';
-ALTER TABLE Productos MODIFY COLUMN Nombre VARCHAR(150) COMMENT 'Nombre del producto';
-ALTER TABLE Productos MODIFY COLUMN Descripcion VARCHAR(150) COMMENT 'Breve descripcion del producto';
-ALTER TABLE Productos MODIFY COLUMN Precio VARCHAR(150) COMMENT 'Valor en COP del producto registrado';
-ALTER TABLE Productos MODIFY COLUMN Categoria VARCHAR(150) COMMENT 'Categoria del producto registrado';
-    
+ALTER TABLE Productos MODIFY COLUMN id_producto INT NOT NULL AUTO_INCREMENT COMMENT 'Identificador único del producto registrado en la app';
+ALTER TABLE Productos MODIFY COLUMN id_vendedor INT NOT NULL COMMENT 'Nombre del vendedor que suministra el producto';
+ALTER TABLE Productos MODIFY COLUMN Nombre VARCHAR(50) NOT NULL COMMENT 'Nombre del producto';
+ALTER TABLE Productos MODIFY COLUMN Descripcion VARCHAR(300) NOT NULL COMMENT 'Breve descripcion del producto';
+ALTER TABLE Productos MODIFY COLUMN Precio FLOAT NOT NULL COMMENT 'Valor en COP del producto registrado';
+ALTER TABLE Productos MODIFY COLUMN Categoria VARCHAR(30) NOT NULL COMMENT 'Categoria del producto registrado';
+
     -- Llaves foraneas tabla productos
     ALTER TABLE Productos ADD CONSTRAINT FK_PRODUCTOS_VEN 
     FOREIGN KEY (id_vendedor)
@@ -119,15 +119,15 @@ CREATE TABLE IF NOT EXISTS orden(
     total FLOAT NOT NULL DEFAULT 0, -- Nuevo agregado
     CONSTRAINT PK_ORDEN PRIMARY KEY(id_orden));
     
-        -- Query para agregar comentarios en las columnas de la tabla Orden
+  -- Query para agregar comentarios en las columnas de la tabla Orden
 
-ALTER TABLE Orden MODIFY COLUMN id_orden VARCHAR(150) COMMENT 'Identificador único de orden de compra';
-ALTER TABLE Orden MODIFY COLUMN id_pago VARCHAR(150) COMMENT 'Identificador único de id de pago asociado a la orden';
-ALTER TABLE Orden MODIFY COLUMN id_rappi VARCHAR(150) COMMENT 'Identificador único del rappitendero asociado a la orden';
-ALTER TABLE Orden MODIFY COLUMN id_vendedor VARCHAR(150) COMMENT 'Identificador único del vendedor asociado a la orden';
-ALTER TABLE Orden MODIFY COLUMN id_usuario VARCHAR(150) COMMENT 'Identificador único de usuario que realizo la orden';
-ALTER TABLE Orden MODIFY COLUMN fecha VARCHAR(150) COMMENT 'Fecha y hora en que se registro la orden';
-ALTER TABLE Orden MODIFY COLUMN total VARCHAR(150) COMMENT 'Total en COP de la orden generada';
+ALTER TABLE Orden MODIFY COLUMN id_orden INT NOT NULL AUTO_INCREMENT COMMENT 'Identificador único de orden de compra';
+ALTER TABLE Orden MODIFY COLUMN id_pago INT NOT NULL COMMENT 'Identificador único de id de pago asociado a la orden';
+ALTER TABLE Orden MODIFY COLUMN id_rappi INT NOT NULL COMMENT 'Identificador único del rappitendero asociado a la orden';
+ALTER TABLE Orden MODIFY COLUMN id_vendedor INT NOT NULL COMMENT 'Identificador único del vendedor asociado a la orden';
+ALTER TABLE Orden MODIFY COLUMN id_usuario INT NOT NULL COMMENT 'Identificador único de usuario que realizo la orden';
+ALTER TABLE Orden MODIFY COLUMN fecha DATETIME NOT NULL COMMENT 'Fecha y hora en que se registro la orden';
+ALTER TABLE Orden MODIFY COLUMN total FLOAT NOT NULL DEFAULT 0 COMMENT 'Total en COP de la orden generada';
     
     -- Llaves foraneas tabla orden
 	ALTER TABLE Orden ADD CONSTRAINT FK_ORDEN_PAGO
@@ -156,13 +156,13 @@ CREATE TABLE IF NOT EXISTS detalle_orden(
 	Cantidad FLOAT NOT NULL,
     CONSTRAINT PK_DETALLE_ORDEN PRIMARY KEY (id_detalle));
     
-         -- Query para agregar comentarios en las columnas de la tabla detalle orden
+ -- Query para agregar comentarios en las columnas de la tabla detalle orden
 
-ALTER TABLE detalle_orden MODIFY COLUMN id_detalle VARCHAR(150) COMMENT 'Identificador único del detalle de orden';
-ALTER TABLE detalle_orden MODIFY COLUMN id_orden VARCHAR(150) COMMENT 'Identificador único de id de orden asociado al detalle';
-ALTER TABLE detalle_orden MODIFY COLUMN id_producto VARCHAR(150) COMMENT 'Identificador único de los productos asociados a la orden';
-ALTER TABLE detalle_orden MODIFY COLUMN Precio_unit VARCHAR(150) COMMENT 'Precio en COP del producto según el vendedor';
-ALTER TABLE detalle_orden MODIFY COLUMN Cantidad VARCHAR(150) COMMENT 'Numero de productos solicitados en la orden';
+ALTER TABLE detalle_orden MODIFY COLUMN id_detalle INT NOT NULL AUTO_INCREMENT COMMENT 'Identificador único del detalle de orden';
+ALTER TABLE detalle_orden MODIFY COLUMN id_orden INT NOT NULL COMMENT 'Identificador único de id de orden asociado al detalle';
+ALTER TABLE detalle_orden MODIFY COLUMN id_producto INT NOT NULL COMMENT 'Identificador único de los productos asociados a la orden';
+ALTER TABLE detalle_orden MODIFY COLUMN Precio_unit FLOAT NOT NULL COMMENT 'Precio en COP del producto según el vendedor';
+ALTER TABLE detalle_orden MODIFY COLUMN Cantidad FLOAT NOT NULL COMMENT 'Numero de productos solicitados en la orden';
 
 	-- Llaves foraneas tabla detalle orden
     
@@ -174,31 +174,31 @@ ALTER TABLE detalle_orden MODIFY COLUMN Cantidad VARCHAR(150) COMMENT 'Numero de
     FOREIGN KEY (id_producto)
     REFERENCES productos (id_producto)  ON DELETE CASCADE;
     
-     -- Tabla Bitacora_vendedor_log para guardar log de los triggers
+    -- Tabla Bitacora_vendedor_log para guardar log de los triggers
      
 CREATE TABLE IF NOT EXISTS Bitacora_vendedor_log (
         id_bitacora INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
         id_vendedor INT NOT NULL,
-		Tipo_movimiento VARCHAR(30),
+		Tipo_movimiento VARCHAR(30) NOT NULL,
         Nombre VARCHAR(50) NOT NULL,
         Direccion VARCHAR(100) NOT NULL,
         Categoria VARCHAR(30),
-        Usuario_registro VARCHAR(100),
+        Usuario_registro VARCHAR(50),
         Fecha DATE,
         Hora TIME
 );
 
  -- Query para agregar comentarios en las columnas en la tabla Bitacora_vendedor_log
 
-ALTER TABLE Bitacora_vendedor_log MODIFY COLUMN id_bitacora VARCHAR(150) COMMENT 'Este número es un identificador único del registro en la bitacora';
-ALTER TABLE Bitacora_vendedor_log MODIFY COLUMN id_vendedor VARCHAR(150) COMMENT 'Identificador del vendedor al que se le realizo el movimiento ';
-ALTER TABLE Bitacora_vendedor_log MODIFY COLUMN Tipo_movimiento VARCHAR(150) COMMENT 'Se registra si el movimiento fue de tipo Insert, Update o Delete';
-ALTER TABLE Bitacora_vendedor_log MODIFY COLUMN Nombre VARCHAR(150) COMMENT 'Nombre del vendedor según el movimiento vendedor';
-ALTER TABLE Bitacora_vendedor_log MODIFY COLUMN Direccion VARCHAR(150) COMMENT 'Dirección del vendedor según el movimiento';
-ALTER TABLE Bitacora_vendedor_log MODIFY COLUMN Categoria VARCHAR(150) COMMENT 'Categoría de productos según el movimiento';
-ALTER TABLE Bitacora_vendedor_log MODIFY COLUMN Usuario_registro VARCHAR(150) COMMENT 'Usuario de la base de datos que realizo el movimiento';
-ALTER TABLE Bitacora_vendedor_log MODIFY COLUMN Fecha VARCHAR(150) COMMENT 'Fecha en la que se realizo el movimiento';
-ALTER TABLE Bitacora_vendedor_log MODIFY COLUMN Hora VARCHAR(150) COMMENT 'Hora en la que se realizo el movimiento';
+ALTER TABLE Bitacora_vendedor_log MODIFY COLUMN id_bitacora INT AUTO_INCREMENT NOT NULL COMMENT 'Este número es un identificador único del registro en la bitacora';
+ALTER TABLE Bitacora_vendedor_log MODIFY COLUMN id_vendedor INT NOT NULL COMMENT 'Identificador del vendedor al que se le realizo el movimiento ';
+ALTER TABLE Bitacora_vendedor_log MODIFY COLUMN Tipo_movimiento  VARCHAR(30) NOT NULL COMMENT 'Se registra si el movimiento fue de tipo Insert, Update o Delete';
+ALTER TABLE Bitacora_vendedor_log MODIFY COLUMN Nombre VARCHAR(50) NOT NULL COMMENT 'Nombre del vendedor según el movimiento vendedor';
+ALTER TABLE Bitacora_vendedor_log MODIFY COLUMN Direccion VARCHAR(100) NOT NULL COMMENT 'Dirección del vendedor según el movimiento';
+ALTER TABLE Bitacora_vendedor_log MODIFY COLUMN Categoria VARCHAR(30) COMMENT 'Categoría de productos según el movimiento';
+ALTER TABLE Bitacora_vendedor_log MODIFY COLUMN Usuario_registro VARCHAR(50) COMMENT 'Usuario de la base de datos que realizo el movimiento';
+ALTER TABLE Bitacora_vendedor_log MODIFY COLUMN Fecha DATE COMMENT 'Fecha en la que se realizo el movimiento';
+ALTER TABLE Bitacora_vendedor_log MODIFY COLUMN Hora TIME COMMENT 'Hora en la que se realizo el movimiento';
 
 -- -- Tabla Bitacora_usuario_log para guardar log de los triggers de la tabla uauario
     
@@ -213,26 +213,26 @@ CREATE TABLE Bitacora_Usuario_log (
 		email VARCHAR(45),
 		sexo VARCHAR(20),
 		celular VARCHAR(20),
-        Usuario_registro VARCHAR(100),
+        Usuario_registro VARCHAR(50),
         Fecha DATE,
         Hora TIME
 );
 
     -- Query para agregar comentarios en las columnas en la tabla Bitacora_Usuario_log
 
-ALTER TABLE Bitacora_Usuario_log MODIFY COLUMN id_bitacora VARCHAR(150) COMMENT 'Este número es un identificador único del registro en la bitacora';
-ALTER TABLE Bitacora_Usuario_log MODIFY COLUMN id_usuario  VARCHAR(150) COMMENT 'Identificador del usuario al que se le realizo el movimiento';
-ALTER TABLE Bitacora_Usuario_log MODIFY COLUMN Tipo_movimiento VARCHAR(150) COMMENT 'Se registra si el movimiento fue de tipo Insert, Update o Delete';
-ALTER TABLE Bitacora_Usuario_log MODIFY COLUMN nombre_usuario VARCHAR(150) COMMENT 'Nombre del usuario según el movimiento vendedor';
-ALTER TABLE Bitacora_Usuario_log MODIFY COLUMN apellido_usuario VARCHAR(150) COMMENT 'Apellido del usuario según del movimiento';
-ALTER TABLE Bitacora_Usuario_log MODIFY COLUMN contraseña VARCHAR(150) COMMENT 'Contraseña del usuario según el movimiento';
-ALTER TABLE Bitacora_Usuario_log MODIFY COLUMN direccion VARCHAR(150) COMMENT 'Dirección del usuario despues o antes según corresponda el movimiento';
-ALTER TABLE Bitacora_Usuario_log MODIFY COLUMN email VARCHAR(150) COMMENT 'Dirección de correo electronico del usuario despues o antes según corresponda el movimiento';
-ALTER TABLE Bitacora_Usuario_log MODIFY COLUMN sexo VARCHAR(150) COMMENT 'Sexo del usuario antes o despues del movimiento según corresponda';
-ALTER TABLE Bitacora_Usuario_log MODIFY COLUMN Celular VARCHAR(150) COMMENT 'Celular del usuario antes o despues del movimiento según corresponda';
-ALTER TABLE Bitacora_Usuario_log MODIFY COLUMN Usuario_registro VARCHAR(150) COMMENT 'Usuario de la base de datos que realizo el movimiento';
-ALTER TABLE Bitacora_Usuario_log MODIFY COLUMN Fecha VARCHAR(150) COMMENT 'Fecha en la que se realizo el movimiento';
-ALTER TABLE Bitacora_Usuario_log MODIFY COLUMN Hora VARCHAR(150) COMMENT 'Hora en la que se realizo el movimiento';
+ALTER TABLE Bitacora_Usuario_log MODIFY COLUMN id_bitacora INT AUTO_INCREMENT NOT NULL COMMENT 'Este número es un identificador único del registro en la bitacora';
+ALTER TABLE Bitacora_Usuario_log MODIFY COLUMN id_usuario  INT NOT NULL COMMENT 'Identificador del usuario al que se le realizo el movimiento';
+ALTER TABLE Bitacora_Usuario_log MODIFY COLUMN Tipo_movimiento VARCHAR(30) COMMENT 'Se registra si el movimiento fue de tipo Insert, Update o Delete';
+ALTER TABLE Bitacora_Usuario_log MODIFY COLUMN nombre_usuario VARCHAR(50) COMMENT 'Nombre del usuario según el movimiento vendedor';
+ALTER TABLE Bitacora_Usuario_log MODIFY COLUMN apellido_usuario VARCHAR(50) COMMENT 'Apellido del usuario según del movimiento';
+ALTER TABLE Bitacora_Usuario_log MODIFY COLUMN contraseña VARCHAR(50) COMMENT 'Contraseña del usuario según el movimiento';
+ALTER TABLE Bitacora_Usuario_log MODIFY COLUMN direccion VARCHAR(100) COMMENT 'Dirección del usuario despues o antes según corresponda el movimiento';
+ALTER TABLE Bitacora_Usuario_log MODIFY COLUMN email VARCHAR(45) COMMENT 'Dirección de correo electronico del usuario despues o antes según corresponda el movimiento';
+ALTER TABLE Bitacora_Usuario_log MODIFY COLUMN sexo VARCHAR(20) COMMENT 'Sexo del usuario antes o despues del movimiento según corresponda';
+ALTER TABLE Bitacora_Usuario_log MODIFY COLUMN Celular VARCHAR(20) COMMENT 'Celular del usuario antes o despues del movimiento según corresponda';
+ALTER TABLE Bitacora_Usuario_log MODIFY COLUMN Usuario_registro VARCHAR(50) COMMENT 'Usuario de la base de datos que realizo el movimiento';
+ALTER TABLE Bitacora_Usuario_log MODIFY COLUMN Fecha DATE COMMENT 'Fecha en la que se realizo el movimiento';
+ALTER TABLE Bitacora_Usuario_log MODIFY COLUMN Hora TIME COMMENT 'Hora en la que se realizo el movimiento';
 
 -- Inserción de datos
 -- Primero insertamos los datos correspondientes a la tabla usuarios
