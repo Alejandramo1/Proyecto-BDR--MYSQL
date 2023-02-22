@@ -1022,16 +1022,8 @@ $$ DELIMITER ;
     -- Prueba para insertar un registro en la tabla usuarios usando el SP ctrado anteriormente
     -- Ingresar datos de nuevo usuario
     
-    START TRANSACTION;
-	CALL sp_usuario_nuevo(
-            'Nelson'
-            , 'Morales Mendoza'
-            , '23dafges'
-            , 'Calle 3r #2-24'
-            , 'Morales@gmail.com'
-			, 'Masculino'
-            , '3124537829'
-        );
+    -- START TRANSACTION;
+	-- CALL sp_usuario_nuevo('Margarita','Sandoval Mendoza','43dafges','Calle 3r #2-24','Sandovale@gmail.com','Femenino','3234537829');
         -- ROLLBACK;
 	
     -- Revisar datos
