@@ -162,7 +162,7 @@ ALTER TABLE detalle_orden MODIFY COLUMN id_detalle INT NOT NULL AUTO_INCREMENT C
 ALTER TABLE detalle_orden MODIFY COLUMN id_orden INT NOT NULL COMMENT 'Identificador único de id de orden asociado al detalle';
 ALTER TABLE detalle_orden MODIFY COLUMN id_producto INT NOT NULL COMMENT 'Identificador único de los productos asociados a la orden';
 ALTER TABLE detalle_orden MODIFY COLUMN Precio_unit FLOAT NOT NULL COMMENT 'Precio en COP del producto según el vendedor';
-ALTER TABLE detalle_orden MODIFY COLUMN Cantidad FLOAT NOT NULL COMMENT 'Numero de productos solicitados en la orden';
+ALTER TABLE detalle_orden MODIFY COLUMN Cantidad INT NOT NULL COMMENT 'Numero de productos solicitados en la orden';
 
 	-- Llaves foraneas tabla detalle orden
     
