@@ -153,7 +153,7 @@ CREATE TABLE IF NOT EXISTS detalle_orden(
 	id_orden INT NOT NULL,
 	id_producto INT NOT NULL,
 	Precio_unit FLOAT NOT NULL,
-	Cantidad FLOAT NOT NULL,
+	Cantidad INT NOT NULL,
     CONSTRAINT PK_DETALLE_ORDEN PRIMARY KEY (id_detalle));
     
  -- Query para agregar comentarios en las columnas de la tabla detalle orden
