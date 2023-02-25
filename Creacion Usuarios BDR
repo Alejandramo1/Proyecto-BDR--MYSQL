@@ -1,0 +1,95 @@
+-- 1. CREACIÓN PRIMER USUARIO ESTE PUEDE LEER, INSERTAR Y MODIFICAR LOS DATOS DE TODAS LAS TABLAS EN LA DATABASE RAPPI
+
+CREATE USER 'aleja_modif' IDENTIFIED BY 'Coderhouse'; -- Creación del nombre del usuario y la contraseña asociada
+-- DROP USER 'aleja_modif'; -- Sentencia para eliminar el usuario de ser necesario
+
+-- Asignación de permisos para lectura, Inserción y modificacion de datos.
+
+-- Permisos para tabla detalle de orden.
+GRANT SELECT, INSERT, UPDATE ON rappi.detalle_orden TO 'aleja_modif';
+-- Permisos para tabla orde.
+GRANT SELECT, INSERT, UPDATE ON rappi.orden TO 'aleja_modif';
+-- Permisos para tabla pagos.
+GRANT SELECT, INSERT, UPDATE ON rappi.pagos TO 'aleja_modif';
+-- Permisos para tabla productos.
+GRANT SELECT, INSERT, UPDATE ON rappi.productos TO 'aleja_modif';
+-- Permisos para tabla rappitenderos.
+GRANT SELECT, INSERT, UPDATE ON rappi.rappitenderos TO 'aleja_modif';
+-- Permisos para tabla usuarios.
+GRANT SELECT, INSERT, UPDATE ON rappi.usuarios TO 'aleja_modif';
+-- Permisos para tabla vendedor.
+GRANT SELECT, INSERT, UPDATE ON rappi.vendedor TO 'aleja_modif';
+-- Permisos para tabla bitacora usuario.
+GRANT SELECT, INSERT, UPDATE ON rappi.bitacora_usuario_log TO  'aleja_modif';
+-- Permisos para tabla bitacora vendedor.
+GRANT SELECT, INSERT, UPDATE ON rappi.bitacora_vendedor_log TO 'aleja_modif';
+
+-- PERMISOS PARA VISTAS
+GRANT SELECT, INSERT, UPDATE ON rappi.productos_vendidos TO 'aleja_modif';
+GRANT SELECT, INSERT, UPDATE ON rappi.top_metodo_pago TO 'aleja_modif';
+GRANT SELECT, INSERT, UPDATE ON rappi.top_rappitenderos TO 'aleja_modif';
+GRANT SELECT, INSERT, UPDATE ON rappi.top_usuarios TO 'aleja_modif';
+GRANT SELECT, INSERT, UPDATE ON rappi.top_vendedores TO 'aleja_modif';
+
+-- PERMISOS PARA STORED PROCEDURES
+
+GRANT EXECUTE ON PROCEDURE rappi.sp_usuario_nuevo TO 'aleja_modif';
+GRANT EXECUTE ON PROCEDURE rappi.sp_vendedores TO 'aleja_modif';
+
+-- PERMISOS PARA FUNCIONES 
+
+GRANT EXECUTE ON FUNCTION rappi.fncat_prod_vendidos TO 'aleja_modif';
+GRANT EXECUTE ON FUNCTION rappi.fnnum_compras TO 'aleja_modif';
+GRANT EXECUTE ON FUNCTION rappi.fnund_vendidas_cat TO 'aleja_modif';
+
+-- VERIFICACIÓN DE LOS PERMISOS OTORGADOS
+SHOW GRANTS FOR 'aleja_modif';
+
+-- 2. CREACIÓN PRIMER USUARIO SOLO LECTURA SOBRE LA DATABASE RAPPI
+
+CREATE USER 'aleja_lectura' IDENTIFIED BY 'Coderhouse'; -- Creación del nombre del usuario y la contraseña asociada
+-- DROP USER 'aleja_lectura'; -- Sentencia para eliminar el usuario de ser necesario
+
+-- Asignación de permisos para lectura de datos.
+
+-- Permisos para tabla detalle de orden.
+GRANT SELECT ON rappi.detalle_orden TO 'aleja_lectura';
+-- Permisos para tabla orden.
+GRANT SELECT ON rappi.orden TO 'aleja_lectura';
+-- Permisos para tabla pagos.
+GRANT SELECT ON rappi.pagos TO 'aleja_lectura';
+-- Permisos para tabla productos.
+GRANT SELECT ON rappi.productos TO 'aleja_lectura';
+-- Permisos para tabla rappitenderos.
+GRANT SELECT ON rappi.rappitenderos TO 'aleja_lectura';
+-- Permisos para tabla usuarios.
+GRANT SELECT ON rappi.usuarios TO 'aleja_lectura';
+-- Permisos para tabla vendedor.
+GRANT SELECT ON rappi.vendedor TO 'aleja_lectura';
+-- Permisos para tabla bitacora usuario.
+GRANT SELECT ON rappi.bitacora_usuario_log TO  'aleja_lectura';
+-- Permisos para tabla bitacora vendedor.
+GRANT SELECT ON rappi.bitacora_vendedor_log TO 'aleja_lectura';
+
+-- PERMISOS PARA VISTAS SOLAMENTE LECTURA
+GRANT SELECT ON rappi.productos_vendidos TO 'aleja_lectura';
+GRANT SELECT ON rappi.top_metodo_pago TO 'aleja_lectura';
+GRANT SELECT ON rappi.top_rappitenderos TO 'aleja_lectura';
+GRANT SELECT ON rappi.top_usuarios TO 'aleja_lectura';
+GRANT SELECT ON rappi.top_vendedores TO 'aleja_lectura';
+
+-- PERMISOS PARA STORED PROCEDURES
+
+GRANT EXECUTE ON PROCEDURE rappi.sp_usuario_nuevo TO 'aleja_lectura';
+GRANT EXECUTE ON PROCEDURE rappi.sp_vendedores TO 'aleja_lectura';
+
+-- PERMISOS PARA FUNCIONES 
+
+GRANT EXECUTE ON FUNCTION rappi.fncat_prod_vendidos TO 'aleja_lectura';
+GRANT EXECUTE ON FUNCTION rappi.fnnum_compras TO 'aleja_lectura';
+GRANT EXECUTE ON FUNCTION rappi.fnund_vendidas_cat TO 'aleja_lectura';
+
+
+-- VERIFICACIÓN DE LOS PERMISOS OTORGADOS
+SHOW GRANTS FOR 'aleja_lectura';
+
