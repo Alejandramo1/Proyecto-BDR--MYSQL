@@ -633,7 +633,7 @@ CREATE PROCEDURE sp_detalle_orden(
     IN Cantidad_entrada INT )
 BEGIN 
 DECLARE v_Precio_prod FLOAT;
-DECLARE v_cantidad_prod FLOAT; 
+DECLARE v_cantidad_prod INT; 
 
 	SELECT Precio 
 		INTO v_Precio_prod
